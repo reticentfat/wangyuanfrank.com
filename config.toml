@@ -35,6 +35,7 @@ footnotereturnlinkcontents = "↩"
 [params]
     description = "Personal website of yuan wong; 王远的个人网站."
     footer = "&copy;  [wangyuan](/) 2018 - 2018"
+    w1 = "测试"
 
   highlightjsVersion = "9.12.0"
   highlightjsCDN = "//cdn.bootcss.com"
