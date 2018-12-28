@@ -33,7 +33,9 @@ footnotereturnlinkcontents = "↩"
     url = "/index.xml"
 
 [params]
+
     description = "Personal website of yuan     王远的个人网站."
+
     footer = "&copy;  [wangyuan](/) 2018 - 2018"
     w1 = "测试"
 
