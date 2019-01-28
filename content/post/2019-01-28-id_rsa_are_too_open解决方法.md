@@ -50,6 +50,7 @@ chmod 700 id_rsa
   ```
 
 - 修改后文件权限如下：
+
   ```
   [root@hadoop0 ~]# ll -h id_rsa*
   -rwx------ 1 root root 1.7K 1月  28 08:56 id_rsa
