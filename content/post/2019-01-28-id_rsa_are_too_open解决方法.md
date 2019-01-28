@@ -6,7 +6,6 @@ slug: id_rsa_are_too_open解决方法
 categories: ["technology"]
 tags:  ["技术", "记录", "问题解决"]
 ---
-# 2019-01-28_id_rsa_are_too_open解决方法
 
 今天遇到一个ssh的问题，如下：
 
