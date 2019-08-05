@@ -42,3 +42,21 @@ tags:  ["Cloudflare", "正则表达式", "宕机"]
 下面仍以.*.*=.*匹配x=x为例。
 
 先在每一个符号之间添加一个状态，匹配的过程就是状态之间的转移，画出 NFA 如下：
+![NFA01](https://raw.githubusercontent.com/reticentfat/wangyuanfrank.com/master/static/images/NFA01.png)
+
+状态 0 为初始状态，状态 4 为结束状态（接受状态）。若状态 m 和 n 之间存在没有符号的有向线段，则称它们之间存在 ε 转换，表示状态 m 无需任何输入即可转移到状态 n。那么对于正则表达式.*.*=.*的 NFA，一开始所处的状态可以是 0, 1 和 2：
+
+![NFA02](https://raw.githubusercontent.com/reticentfat/wangyuanfrank.com/master/static/images/NFA02.png)
+
+现在考虑输入的第一个字符x，读取x后，状态 0 能转移到状态 1，状态 1 能转移到状态 2，由于状态 2 到 3 需要一个=，无法完成转移，那么，转移后的状态就是 1 和 2。又因为状态 1 和 2 到状态 0 都存在 ε 转换，因此，读取了字符x后的状态仍然是 0, 1 和 2：
+
+![NFA02](https://raw.githubusercontent.com/reticentfat/wangyuanfrank.com/master/static/images/NFA02.png)
+
+现在考虑接下来的等号=，同理，状态 0 和 1 分别转移到状态 1 和 2，而状态 2 读取了=可以转移到状态 3，又由于状态 1, 2 到状态 0、状态 3 到状态 4 都有 ε 转换，因此，读取了字符=后的状态是 0, 1, 2, 3 和 4：
+
+![NFA03](https://raw.githubusercontent.com/reticentfat/wangyuanfrank.com/master/static/images/NFA03.png)
+
+末位的字符x的读取过程不再赘述，当所有字符读取完毕，可达的状态有 0, 1, 2, 3 和 4，其中包含了接受状态 4，即正则表达式能够成功匹配该字符串。
+
+利用 NFA 来匹配x=x，过程中没有回溯，每个字符仅被处理了一遍，因此匹配所耗费的时间是与字符数量线性相关的。将正则表达式引擎改为此方法来匹配字符串，就可以避免因回溯带来的大量资源消耗，不重蹈 Cloudflare 的覆辙。
+
