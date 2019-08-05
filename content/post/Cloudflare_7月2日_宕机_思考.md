@@ -20,6 +20,11 @@ tags:  ["Cloudflare", "正则表达式", "宕机"]
 .*.*=.*
 ```
 它从表面看上去非常简单，.表示匹配一个任意字符，.*即表示匹配零个或多个任意字符。因此上述表达式先匹配零个到多个任意字符，然后又匹配零个到多个任意字符，再匹配一个等于符号=，最后再匹配零个到多个任意字符。如下图所示。
+
 ![CloudflareNFA01](https://raw.githubusercontent.com/reticentfat/wangyuanfrank.com/master/static/images/CloudflareNFA01.png)
+
+你可以到 [Perl Regexp::Debugger](https://metacpan.org/pod/Regexp::Debugger) 直观地查看正则表达式引擎如何回溯。下图展示了x=x的匹配过程。
+
+![backtrackingSteps](https://raw.githubusercontent.com/reticentfat/wangyuanfrank.com/master/static/images/backtrackingSteps.gif)
 
 这种正则在匹配的时候会造成太多回溯使时间复杂度飙升。解决方案是把正则转换成 NFA （非确定有限自动机）这样时间复杂度就是对于输入数据线性的。
