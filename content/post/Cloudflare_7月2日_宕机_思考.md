@@ -1,9 +1,8 @@
-
 ---
 title: "Cloudflare_7月2日_宕机_思考"
 author: "wangyuan"
 date: '2019-08-05'
-slug: Cloudflare
+slug: 作弊
 categories: ["技术"]
-tags:  ["宕机", "思考", "Cloudflare"]
+tags:  ["Cloudflare", "宕机", "思考"]
 ---
