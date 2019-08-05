@@ -33,7 +33,8 @@ tags:  ["Cloudflare", "正则表达式", "宕机"]
 ![5353Steps](https://raw.githubusercontent.com/reticentfat/wangyuanfrank.com/master/static/images/5353.gif)
 > 这种正则在匹配的时候会造成太多回溯使时间复杂度飙升。解决方案是把正则转换成 NFA （非确定有限自动机）这样时间复杂度就是对于输入数据线性的。
 
-真正的解决方法
+####真正的解决方法
+
 通过改写正则表达式本身消除回溯的方法并不能一劳永逸地解决问题，由于正则表达式本身可读性差，无法指望人工完全消除隐含的回溯。尽管存在相应检测工具，但其一般靠随机数据暴力穷举，费时费力。要完全消除回溯带来的性能问题需要从正则表达式引擎本身入手。
 
 好在 1968 年，Ken Thompson 发表的一篇论文 [Programming Techniques: Regular expression search algorithm ](https://dl.acm.org/citation.cfm?doid=363347.363387)提出了解决办法。这篇论文阐述了一种将正则表达式转换为非确定性有穷自动机（NFA）的方法，然后根据在 NFA 中状态的转换，实现正则表达式的匹配。即使是带有回溯的正则表达式的匹配过程，这种算法的时间复杂度与字符串长度也仅呈线性关系。
