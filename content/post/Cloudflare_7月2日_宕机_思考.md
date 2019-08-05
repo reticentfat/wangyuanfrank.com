@@ -6,4 +6,4 @@ slug: Cloudflare
 categories: ["技术"]
 tags:  ["Cloudflare", "宕机", "思考"]
 ---
-上个月Cloudflare发生了一次宕机，原因后来官方给出了个[解释](https://new.blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/#appendix-about-regular-expression-backtracking)。[中文解释](https://blog.cloudflare.com/zh/details-of-the-cloudflare-outage-on-july-2-2019-zh/）  失事一样，并不是单一问题导致的，而是一连串原因导致保险措施失效。
+上个月Cloudflare发生了一次宕机，原因后来官方给出了个[解释](https://new.blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/#appendix-about-regular-expression-backtracking).[中文解释](https://blog.cloudflare.com/zh/details-of-the-cloudflare-outage-on-july-2-2019-zh/）  失事一样，并不是单一问题导致的，而是一连串原因导致保险措施失效。
