@@ -31,7 +31,8 @@ tags:  ["Cloudflare", "正则表达式", "宕机"]
 
 下图展示了引擎是如何走了 5353 步才发现x=xxxxxxxxxxxxxxxxxxxx匹配失败的。
 ![5353Steps](https://raw.githubusercontent.com/reticentfat/wangyuanfrank.com/master/static/images/5353.gif)
-> 这种正则在匹配的时候会造成太多回溯使时间复杂度飙升。解决方案是把正则转换成 NFA （非确定有限自动机）这样时间复杂度就是对于输入数据线性的。
+
+> 这种正则在匹配的时候会造成太多回溯使时间复杂度飙升。解决方案是把正则转换成 NFA （非确定有限自动机）这样时间复杂度就是对于输入数据线性的。  
 
 #### 真正的解决方法
 
