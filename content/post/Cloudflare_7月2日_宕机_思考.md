@@ -27,4 +27,8 @@ tags:  ["Cloudflare", "正则表达式", "宕机"]
 
 ![backtrackingSteps](https://raw.githubusercontent.com/reticentfat/wangyuanfrank.com/master/static/images/backtrackingSteps.gif)
 
+如果我们将正则表达式末尾添加一个分号，改写为.*.*=.*;，或申明懒惰匹配的写法.*?.*?=.*?;，两者在处理匹配失败的字符串时所需要的步数是相同的，如x=x都需要耗费 90 步才能知道匹配失败，而x=后面有 20 个 x时，从原来 555 步增加到了惊人的 5353 步。
+
+下图展示了引擎是如何走了 5353 步才发现x=xxxxxxxxxxxxxxxxxxxx匹配失败的。
+![5353Steps](https://raw.githubusercontent.com/reticentfat/wangyuanfrank.com/master/static/images/5353.gif)
 这种正则在匹配的时候会造成太多回溯使时间复杂度飙升。解决方案是把正则转换成 NFA （非确定有限自动机）这样时间复杂度就是对于输入数据线性的。
